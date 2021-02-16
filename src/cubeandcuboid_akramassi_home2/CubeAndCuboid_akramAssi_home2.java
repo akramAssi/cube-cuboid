@@ -15,7 +15,9 @@ public class CubeAndCuboid_akramAssi_home2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Cuboid op =new Cuboid();
+        op.read();
+        System.out.println(op.toString());
     }
     
 }
