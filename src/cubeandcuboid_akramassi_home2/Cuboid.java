@@ -4,51 +4,87 @@
  * and open the template in the editor.
  */
 package cubeandcuboid_akramassi_home2;
+import java.util.Scanner;
 
 /**
  *
  * @author Assi_workstation
  */
-public class  Cuboid <type>{
-    private type length;
-    private type width;
-    private type height;
+public class  Cuboid {
+    private double length;
+    private double width;
+    private double height;
+    
+   
+    public Cuboid() {
+        this.length = 0;
+        this.width = 0;
+        this.height = 0;
+    }
 
-    public Cuboid(type length, type width, type height) {
+    public Cuboid(double length, double width, double height) {
         this.length = length;
         this.width = width;
         this.height = height;
     }
 
-    public type getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(type length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
-    public type getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public void setWidth(type width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    public type getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(type height) {
+    public void setHeight(double height) {
         this.height = height;
     }
-    
-    
-
+    public double getVolume()
+    {
+        return getHeight()*getWidth()*getLength();
+    }
+    public double getSurfaceArea()
+    {
+           return  2*(getLength()*getHeight()+getLength()*getWidth()+getWidth()*getHeight());
+    }
+    public double getBaseArea()
+    {
+        return getWidth()*getLength();
+    }
+    public double getSideArea()
+    {
+        return getSurfaceArea()-2*getBaseArea();
+    }
+    protected void finalize(){}
     @Override
     public String toString() {
-        return "Cuboid{" + "length=" + length + ", width=" + width + ", height=" + height + '}';
+        return "Cuboid{ " + "length=" + length + ", width=" + width + ", height=" + height+ ", Volume="+
+                getVolume() + ", Surface=" + getSurfaceArea() + ", SideArea="+ getSideArea() + ", BaseArea" + getBaseArea() + " }";
+    }
+    public void write (){
+        this.toString();
+    }
+    public void read()
+    {
+        Scanner in=new Scanner(System.in);
+        System.out.print("Please Enetr A Length For Cuboid : ");
+        this.setLength(in.nextDouble());
+        System.out.print("Please Enetr A Height For Cuboid : ");
+        this.setHeight(in.nextDouble());
+        System.out.print("Please Enetr A Width For Cuboid : ");
+        this.setWidth(in.nextDouble());
     }
     
     
