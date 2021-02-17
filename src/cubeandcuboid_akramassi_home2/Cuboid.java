@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Assi_workstation
  */
-public class  Cuboid {
+public class  Cuboid implements Comparable<Cuboid> {
     private double length;
     private double width;
     private double height;
@@ -71,13 +71,13 @@ public class  Cuboid {
     @Override
     public String toString() {
         return "Cuboid{ " + "length=" + length + ", width=" + width + ", height=" + height+ ", Volume="+
-                getVolume() + ", Surface=" + getSurfaceArea() + ", SideArea="+ getSideArea() + ", BaseArea" + getBaseArea() + " }";
+                getVolume() + ", Surface=" + getSurfaceArea() + ", SideArea="+ getSideArea() + ", BaseArea=" + getBaseArea() + " }";
     }
     public void write (){
-        this.toString();
+        System.out.println(this);
     }
-    public void read()
-    {
+    public void read(){
+        try{
         Scanner in=new Scanner(System.in);
         System.out.print("Please Enetr A Length For Cuboid : ");
         this.setLength(in.nextDouble());
@@ -85,7 +85,18 @@ public class  Cuboid {
         this.setHeight(in.nextDouble());
         System.out.print("Please Enetr A Width For Cuboid : ");
         this.setWidth(in.nextDouble());
+        }
+        catch(NumberFormatException f)
+        {
+            System.out.println("please insert number only");
+        }
     }
+    
+    @Override
+     public int compareTo(Cuboid candidate) {
+         return (this.getVolume() < candidate.getVolume() ? -1 :
+                 (this.getVolume() == candidate.getVolume() ? 0 : 1));
+     }    
     
     
   
