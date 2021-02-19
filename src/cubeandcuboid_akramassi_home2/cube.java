@@ -34,7 +34,7 @@ public class cube extends Cuboid {
     {
         Scanner in=new Scanner(System.in);
         double x;
-        System.out.print("Please Enetr A Length For cube : ");
+        System.out.print("Please Enetr A Length For Cube : ");
         try{
             x=in.nextDouble();
             super.setLength(x);
