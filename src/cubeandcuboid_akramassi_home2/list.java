@@ -34,7 +34,17 @@ public class list {
             String[] x = s.split(",");
             if(x.length==3)
             { try{
-                lis.add(new Cuboid(Double.parseDouble(x[0]),Double.parseDouble(x[1]),Double.parseDouble(x[2])));
+                boolean flag=true;
+                for(int i=1; i<x.length; i++){
+                    if(!x[0].equalsIgnoreCase(x[i])){
+                        flag= false;
+                    }
+                }
+                        System.out.println(flag);
+                if(!flag)
+                    lis.add(new Cuboid(Double.parseDouble(x[0]),Double.parseDouble(x[1]),Double.parseDouble(x[2])));
+                else
+                    lis.add(new cube(Double.parseDouble(x[0])));
             } catch (NumberFormatException nfe) {
                        System.out.println("please insert number only");
                     }
